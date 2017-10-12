@@ -4,18 +4,46 @@
 	<meta charset="UTF-8">
 	<title>3d-照片墙旋转</title>
 	<link rel="stylesheet" type="text/css" href="index.css">
+	<script src="jquery-3.2.1.js"></script>
 </head>
 <body>
 	<div class="container">
 		<ul class="container-3d">
 			<li class="item"><img src="img/Iphone1.png" alt="" class="pic-item"></li>
+			<li class="item"><img src="img/Iphone2.png" alt="" class="pic-item"></li>
+			<li class="item"><img src="img/Iphone3.png" alt="" class="pic-item"></li>
 			<li class="item"><img src="img/Iphone1.png" alt="" class="pic-item"></li>
-			<li class="item"><img src="img/Iphone1.png" alt="" class="pic-item"></li>
-			<li class="item"><img src="img/Iphone1.png" alt="" class="pic-item"></li>
-			<li class="item"><img src="img/Iphone1.png" alt="" class="pic-item"></li>
-			<li class="item"><img src="img/Iphone1.png" alt="" class="pic-item"></li>
-
+			<li class="item"><img src="img/Iphone2.png" alt="" class="pic-item"></li>
+			<li class="item"><img src="img/Iphone3.png" alt="" class="pic-item"></li>
 		</ul>
 	</div>
 </body>
 </html>
+
+<script type="text/javascript">
+	$(function (){
+		var rotate = 60; //旋转的角度
+		var moveY = 6; //每次旋转的角度
+		var moveZ = '300px'; //移动的距离
+		var liLists = $('.item') //3D场景
+		var j = 1
+		var rotateArr = [] //存放每个元素旋转的度数
+		for(var i = 0; i < liLists.length; i++){
+			$(liLists[i]).css({
+				"transform": "rotateY("+(i*rotate)+"deg) translateZ("+moveZ+")",
+				"-ms-transform": "rotateY("+(i*rotate)+"deg) translateZ("+moveZ+")"
+			})
+			rotateArr.push(i*rotate) //记录初始化每个item的rotateY的值
+		}
+
+		//点击改变一下位置
+		$('body').click(function(){
+			$('.container-3d').css({
+				"transform": "rotateY("+(j*rotate)+"deg)",
+				"-ms-transform": "rotateY("+(j*rotate)+"deg)"
+			})
+			j++
+		})
+
+	})
+</script>
