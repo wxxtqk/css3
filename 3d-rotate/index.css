@@ -14,9 +14,7 @@ ul{
 .container{
 	position: absolute;
 	transform-style: preserve-3d; /* 设置3d场景 */
-	transform: perspective(1500px);	
-	-ms-transform-style: preserve-3d; /* 设置3d场景 */
-	-ms-transform: perspective(1500px);
+	transform: perspective(1500px);	/*设置景深*/
 	margin: 0 auto;
 	width: 384px;
 	height: 550px;
